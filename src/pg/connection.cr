@@ -13,7 +13,7 @@ module PG
         @connection = PQ::Connection.new(conn_info)
         @connection.connect
       rescue ex
-        raise DB::ConnectionRefused.new(cause: ex)
+        raise DB::ConnectionRefused.new(ex.message, cause: ex)
       end
     end
 

@@ -2,7 +2,7 @@ require "../spec_helper"
 
 describe PG::Connection, "#initialize" do
   it "raises on bad connections" do
-    expect_raises(DB::ConnectionRefused) {
+    expect_raises(DB::ConnectionRefused, "Cannot establish connection") {
       DB.open("postgres://localhost:5433")
     }
   end
